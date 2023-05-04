@@ -2,6 +2,7 @@ package com.demo.pokee.feature_auth.presentation.screens
 
 import android.app.Activity
 import android.widget.Toast
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -104,7 +105,12 @@ fun OtpVerificationScreen(
             Text(
                 text = "Resend",
                 color = if (counter != 0) Color.Black else Color(0xFFF89D64) ,
-                fontWeight = FontWeight.Bold
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.clickable {
+                    if (counter == 0){
+                        viewModel.verifyPhoneNumber(activity, phoneNumber)
+                    }
+                }
             )
         }
         Spacer(modifier = Modifier.height(20.dp))

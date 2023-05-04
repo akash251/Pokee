@@ -1,6 +1,8 @@
 package com.demo.pokee.feature_auth.data.remote.dto
 
+import androidx.annotation.Keep
 
+@Keep
 data class UserDetailsDto(
     val id : String,
     val first_name : String,
